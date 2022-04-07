@@ -1,144 +1,152 @@
 <script>
-	import { tick } from 'svelte';
-	import { crossfade, fade } from 'svelte/transition';
-	import data from './data';
-	import keyboard from './useKeyboard';
-	let selected = '';
-	let gallery;
-	const [send, receive] = crossfade({
-		duration: () => 300,
-		fallback: fade
-	});
+    import { tick } from 'svelte'
+    import { crossfade, fade } from 'svelte/transition'
+    import data from './data'
+    import keyboard from './useKeyboard'
+    let selected = ''
+    let gallery
+    const [send, receive] = crossfade({
+        duration: () => 500,
+        fallback: fade,
+    })
 
-	const handlePreviewClick = (imageURL) => {
-		selected = imageURL;
-	};
+    const handlePreviewClick = (imageURL) => {
+        selected = imageURL
+    }
 
-	$: currentIdx = selected ? data.findIndex((d) => d.banner_image === selected) : -1;
+    $: currentIdx = selected
+        ? data.findIndex((d) => d.banner_image === selected)
+        : -1
 
-	const shortcut = {
-		ArrowRight: async (e) => {
-			e.preventDefault();
-			const nextIdx = (currentIdx + 1) % data.length;
-			selected = data[nextIdx].banner_image;
-			await tick();
-			const active = gallery.querySelector('[data-selected="true"]');
-			if (active) {
-				active.scrollIntoView();
-			}
-		},
-		ArrowLeft: async (e) => {
-			e.preventDefault();
-			const nextIdx = currentIdx === 0 ? data.length - 1 : (currentIdx - 1) % data.length;
-			selected = data[nextIdx].banner_image;
-			await tick();
-			const active = gallery.querySelector('[data-selected="true"]');
-			if (active) {
-				active.scrollIntoView();
-			}
-		}
-	};
+    const shortcut = {
+        ArrowRight: async (e) => {
+            e.preventDefault()
+            const nextIdx = (currentIdx + 1) % data.length
+            selected = data[nextIdx].banner_image
+            await tick()
+            const active = gallery.querySelector('[data-selected="true"]')
+            if (active) {
+                active.scrollIntoView()
+            }
+        },
+        ArrowLeft: async (e) => {
+            e.preventDefault()
+            const nextIdx =
+                currentIdx === 0
+                    ? data.length - 1
+                    : (currentIdx - 1) % data.length
+            selected = data[nextIdx].banner_image
+            await tick()
+            const active = gallery.querySelector('[data-selected="true"]')
+            if (active) {
+                active.scrollIntoView()
+            }
+        },
+    }
 </script>
 
-<div class="gallery-container">
-	{#each data as d (d.banner_image)}
-		<div>
-			{#if d.banner_image !== selected}
-				<div
-					role="img"
-					loading="lazy"
-					aria-label={d.name}
-					out:send={{ key: d.banner_image }}
-					in:receive={{ key: d.banner_image }}
-					on:click={() => handlePreviewClick(d.banner_image)}
-					class="image"
-					style="background-image: url({d.banner_image});"
-				/>
-			{/if}
-		</div>
-	{/each}
+<div class="wrapper">
+    <div class="gallery-container">
+        {#each data as d (d.banner_image)}
+            <div>
+                {#if d.banner_image !== selected}
+                    <div
+                        role="img"
+                        loading="lazy"
+                        aria-label={d.name}
+                        out:send={{ key: d.banner_image }}
+                        in:receive={{ key: d.banner_image }}
+                        on:click={() => handlePreviewClick(d.banner_image)}
+                        class="image"
+                        style="background-image: url({d.banner_image});"
+                    />
+                {/if}
+            </div>
+        {/each}
+    </div>
 </div>
 
 {#if selected}
-	<div
-		class="image-viewer"
-		on:click={(e) => {
-			if (e.target === e.currentTarget) {
-				selected = '';
-			}
-		}}
-	>
-		<button
-			on:click={() => {
-				const nextIdx = (currentIdx - 1) % data.length;
-				selected = data[nextIdx].banner_image;
-			}}
-		>
-			Předchozí
-		</button>
-		<button
-			on:click={() => {
-				const nextIdx = (currentIdx + 1) % data.length;
-				selected = data[nextIdx].banner_image;
-			}}
-		>
-			Další
-		</button>
-		<div class="gallery-wrapper">
-			<div
-				class="close-wrapper"
-				on:click={(f) => {
-					selected = '';
-				}}
-			>
-				<span class="close" />
-			</div>
-			<img
-				in:receive={{ key: selected }}
-				out:send={{ key: selected }}
-				src={selected}
-				alt={data[currentIdx].name}
-				class="shadow-2xl rounded-md mb-1"
-			/>
-			<div
-				aria-label="圖片檢視器，可用鍵盤左右鍵導覽"
-				role="group"
-				bind:this={gallery}
-				use:keyboard={{ shortcut }}
-				class="gallery"
-				tabindex={0}
-			>
-				{#each data as d (d.name)}
-					<div
-						role="img"
-						out:send={{ key: d.banner_image }}
-						in:receive={{ key: d.banner_image }}
-						aria-label={d.name}
-						data-selected={selected === d.banner_image}
-						class:active={selected === d.banner_image}
-						on:click={() => (selected = d.banner_image)}
-						class="image rounded-md shadow-2xl"
-						style="background-image:url({d.banner_image})"
-					/>
-				{/each}
-			</div>
-		</div>
-	</div>
+    <div
+        class="image-viewer"
+        on:click={(e) => {
+            if (e.target === e.currentTarget) {
+                selected = ''
+            }
+        }}
+    >
+        <button
+            on:click={() => {
+                const nextIdx = (currentIdx - 1) % data.length
+                selected = data[nextIdx].banner_image
+            }}
+        >
+            Předchozí
+        </button>
+        <button
+            on:click={() => {
+                const nextIdx = (currentIdx + 1) % data.length
+                selected = data[nextIdx].banner_image
+            }}
+        >
+            Další
+        </button>
+        <div class="gallery-wrapper">
+            <div
+                class="close-wrapper"
+                on:click={(f) => {
+                    selected = ''
+                }}
+            >
+                <span class="close" />
+            </div>
+            <img
+                in:receive={{ key: selected }}
+                out:send={{ key: selected }}
+                src={selected}
+                alt={data[currentIdx].name}
+                class="shadow-2xl rounded-md mb-1"
+            />
+            <div
+                aria-label="圖片檢視器，可用鍵盤左右鍵導覽"
+                role="group"
+                bind:this={gallery}
+                use:keyboard={{ shortcut }}
+                class="gallery"
+                tabindex={0}
+            >
+                {#each data as d (d.name)}
+                    <div
+                        role="img"
+                        out:send={{ key: d.banner_image }}
+                        in:receive={{ key: d.banner_image }}
+                        aria-label={d.name}
+                        data-selected={selected === d.banner_image}
+                        class:active={selected === d.banner_image}
+                        on:click={() => (selected = d.banner_image)}
+                        class="image rounded-md shadow-2xl"
+                        style="background-image:url({d.banner_image})"
+                    />
+                {/each}
+            </div>
+        </div>
+    </div>
 {/if}
 <p class="visually-hidden" aria-atomic={true} aria-live="assertive">
-	{#if data[currentIdx]}
-		Current Image Name: {data[currentIdx].name}
-	{/if}
+    {#if data[currentIdx]}
+        Current Image Name: {data[currentIdx].name}
+    {/if}
 </p>
 
 <style lang="sass">
 	.gallery-container 
 		display: grid
-		grid-template-columns: repeat(3, 100px)
+		grid-template-columns: repeat(3, 1fr)
 		grid-gap: 5px
 
-	// .gallery-container:nth-child(-n+4)
-	// 	display: none
+		@include down('sm')
+			& :nth-child(n+4)
+				display: none
 
 	.visually-hidden 
 		visibility: hidden
@@ -160,13 +168,20 @@
 		width: 80%
 		margin: 0 auto
 
+		@include down('sm')
+			width: 90%
+
 		.close-wrapper
 			opacity: 0
 			animation: fade-in 1s forwards
-			animation-delay: 1s
+			animation-delay: .5s
 			position: absolute
 			right: 20px
 			top: 20px
+
+			@include down('sm')
+				top: 10px
+				right: 10px
 
 		.close
 			position: relative
@@ -203,8 +218,11 @@
 				height: 2px
 				background: black
 		
-		@include down('sm')
-			width: 90%
+			@include down('sm')
+				transform: scale(0.7)
+
+				&:hover
+					transform: scale(0.7)
 
 	.gallery-wrapper img 
 		max-height: 535px
@@ -230,7 +248,7 @@
 		bottom: 0
 		right: 0
 		top: 0
-		transition: ease background-color .3s
+		transition: ease background-color .3s, ease backdrop-filter .3s
 		backdrop-filter: blur(10px)
 		background-color: rgba(255, 255, 255, 0.5)
 
