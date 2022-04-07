@@ -134,7 +134,7 @@
 	.image {
 		width: 100%;
 		margin: 0 auto;
-		height: 100px;
+		aspect-ratio: 1/1;
 		background: center / cover no-repeat;
 	}
 
@@ -146,6 +146,7 @@
 
 	.gallery-wrapper img {
 		max-height: 535px;
+		aspect-ratio: 2/1;
 		width: 100%;
 		object-fit: cover;
 	}
@@ -154,6 +155,7 @@
 		position: relative;
 		display: flex;
 		flex-wrap: nowrap;
+		gap: 5px;
 		width: 100%;
 		height: 100%;
 		overflow-x: auto;
