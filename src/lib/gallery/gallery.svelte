@@ -85,7 +85,12 @@
 			Další
 		</button>
 		<div class="gallery-wrapper">
-			<img in:receive={{ key: selected }} out:send={{ key: selected }} src={selected} />
+			<img
+				in:receive={{ key: selected }}
+				out:send={{ key: selected }}
+				src={selected}
+				alt={data[currentIdx].name}
+			/>
 			<div
 				aria-label="圖片檢視器，可用鍵盤左右鍵導覽"
 				role="group"
@@ -115,70 +120,53 @@
 	{/if}
 </p>
 
-<style>
-	* {
-		box-sizing: border-box;
-	}
-	/* 	img { max-width: 100%; } */
+<style lang="sass">
+	.gallery-container 
+		display: grid
+		grid-template-columns: repeat(3, 100px)
+		grid-gap: 5px
 
-	.gallery-container {
-		display: grid;
-		grid-template-columns: repeat(3, 100px);
-		grid-gap: 5px;
-	}
+	.visually-hidden 
+		visibility: hidden
 
-	.visually-hidden {
-		visibility: hidden;
-	}
+	.image 
+		width: 100%
+		margin: 0 auto
+		aspect-ratio: 1/1
+		background: center / cover no-repeat
 
-	.image {
-		width: 100%;
-		margin: 0 auto;
-		aspect-ratio: 1/1;
-		background: center / cover no-repeat;
-	}
+	.gallery-wrapper 
+		max-width: 1200px
+		margin: 0 auto
+		padding: 0 24px
 
-	.gallery-wrapper {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 0 24px;
-	}
+	.gallery-wrapper img 
+		max-height: 535px
+		aspect-ratio: 2/1
+		width: 100%
+		object-fit: cover
 
-	.gallery-wrapper img {
-		max-height: 535px;
-		aspect-ratio: 2/1;
-		width: 100%;
-		object-fit: cover;
-	}
+	.gallery 
+		position: relative
+		display: flex
+		flex-wrap: nowrap
+		gap: 5px
+		width: 100%
+		height: 100%
+		overflow-x: auto
+		justify-content: space-between
 
-	.gallery {
-		position: relative;
-		display: flex;
-		flex-wrap: nowrap;
-		gap: 5px;
-		width: 100%;
-		height: 100%;
-		overflow-x: auto;
-		justify-content: space-between;
-	}
+	.image-viewer 
+		max-width: 1000px
+		margin: 0 auto
+		position: fixed
+		width: 100%
+		height: 100%
+		left: 0
+		bottom: 0
+		right: 0
+		top: 0
 
-	.image-viewer {
-		max-width: 1000px;
-		margin: 0 auto;
-		position: fixed;
-		width: 100%;
-		height: 100%;
-		left: 0;
-		bottom: 0;
-		right: 0;
-		top: 0;
-	}
-
-	.active {
-		border: 3px solid #000;
-	}
-
-	.image-viewer > img {
-		max-height: 70%;
-	}
+	.active 
+		border: 3px inset solid #000
 </style>
