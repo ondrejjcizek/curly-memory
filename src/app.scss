@@ -3,6 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "scss/_breakpoints.scss";
+
 * {
     box-sizing: border-box;
 }

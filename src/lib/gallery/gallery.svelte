@@ -168,5 +168,7 @@
 		top: 0
 
 	.active 
-		border: 3px inset solid #000
+		@include up('md')
+			border: 3px solid #000
+
 </style>
