@@ -74,7 +74,7 @@
 				selected = data[nextIdx].banner_image;
 			}}
 		>
-			上一張
+			Předchozí
 		</button>
 		<button
 			on:click={() => {
@@ -82,34 +82,36 @@
 				selected = data[nextIdx].banner_image;
 			}}
 		>
-			下一張
+			Další
 		</button>
-		<img in:receive={{ key: selected }} out:send={{ key: selected }} src={selected} />
-		<div
-			aria-label="圖片檢視器，可用鍵盤左右鍵導覽"
-			role="group"
-			bind:this={gallery}
-			use:keyboard={{ shortcut }}
-			class="gallery"
-			tabindex={0}
-		>
-			{#each data as d (d.name)}
-				<div
-					role="img"
-					aria-label={d.name}
-					data-selected={selected === d.banner_image}
-					class:active={selected === d.banner_image}
-					on:click={() => (selected = d.banner_image)}
-					class="image"
-					style="background-image:url({d.banner_image})"
-				/>
-			{/each}
+		<div class="gallery-wrapper">
+			<img in:receive={{ key: selected }} out:send={{ key: selected }} src={selected} />
+			<div
+				aria-label="圖片檢視器，可用鍵盤左右鍵導覽"
+				role="group"
+				bind:this={gallery}
+				use:keyboard={{ shortcut }}
+				class="gallery"
+				tabindex={0}
+			>
+				{#each data as d (d.name)}
+					<div
+						role="img"
+						aria-label={d.name}
+						data-selected={selected === d.banner_image}
+						class:active={selected === d.banner_image}
+						on:click={() => (selected = d.banner_image)}
+						class="image"
+						style="background-image:url({d.banner_image})"
+					/>
+				{/each}
+			</div>
 		</div>
 	</div>
 {/if}
 <p class="visually-hidden" aria-atomic={true} aria-live="assertive">
 	{#if data[currentIdx]}
-		您現在正在查看：{data[currentIdx].name}
+		Current Image Name: {data[currentIdx].name}
 	{/if}
 </p>
 
@@ -122,7 +124,7 @@
 	.gallery-container {
 		display: grid;
 		grid-template-columns: repeat(3, 100px);
-		grid-gap: 10px;
+		grid-gap: 5px;
 	}
 
 	.visually-hidden {
@@ -131,27 +133,36 @@
 
 	.image {
 		width: 100%;
+		margin: 0 auto;
 		height: 100px;
 		background: center / cover no-repeat;
 	}
 
+	.gallery-wrapper {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 24px;
+	}
+
+	.gallery-wrapper img {
+		max-height: 535px;
+		width: 100%;
+		object-fit: cover;
+	}
+
 	.gallery {
+		position: relative;
 		display: flex;
 		flex-wrap: nowrap;
 		width: 100%;
-		gap: 8px;
+		height: 100%;
 		overflow-x: auto;
 		justify-content: space-between;
 	}
 
-	.gallery > .image {
-		flex-shrink: 0;
-		width: 100px;
-		height: 100px;
-	}
-
 	.image-viewer {
-		padding: 20px;
+		max-width: 1000px;
+		margin: 0 auto;
 		position: fixed;
 		width: 100%;
 		height: 100%;
@@ -159,7 +170,6 @@
 		bottom: 0;
 		right: 0;
 		top: 0;
-		background-color: rgba(100, 100, 100, 0.8);
 	}
 
 	.active {
