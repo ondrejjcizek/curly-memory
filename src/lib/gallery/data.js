@@ -1,11 +1,13 @@
 const data = [
 	{
-		name: '風景照1',
-		banner_image: 'https://d2rkn6fj2nuekp.cloudfront.net/edms/56.jpg'
+		name: 'Pokoj 1',
+		banner_image:
+			'https://firebasestorage.googleapis.com/v0/b/u-bile-ruze.appspot.com/o/room-1%2Froom-1-1.jpeg?alt=media&token=43cff561-6e30-458d-9790-fb137bbb847e'
 	},
 	{
-		name: '風景照2',
-		banner_image: 'https://d2rkn6fj2nuekp.cloudfront.net/edms/57.jpg'
+		name: 'Pokoj 2',
+		banner_image:
+			'https://firebasestorage.googleapis.com/v0/b/u-bile-ruze.appspot.com/o/room-1%2Froom-1-2.jpeg?alt=media&token=c07f1fdd-52ff-4bde-aa84-c45b460e38eb'
 	},
 	{
 		name: '風景照3',
