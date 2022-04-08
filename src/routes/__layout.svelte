@@ -4,10 +4,10 @@
 
 <header class="bg-black">
 	<div
-		class=" max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between"
+		class=" mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-16 lg:px-8"
 	>
-		<h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl flex items-center">
-			<img class="rotate h-20 mr-4" src="u-bile-ruze-logo.svg" alt="" />
+		<h2 class="flex items-center text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+			<img class="rotate mr-4 h-20" src="u-bile-ruze-logo.svg" alt="" />
 			<div>
 				<span class="block">U bílé růže</span>
 				<span class="block text-slate-400">Penzion a pivnice</span>
@@ -17,7 +17,7 @@
 			<div class="inline-flex rounded-md shadow">
 				<a
 					href="/rezervace"
-					class="inline-flex items-center justify-center px-5 py-3 border border-transparent no-underline text-lg font-semibold rounded-md text-black bg-white hover:bg-slate-400"
+					class="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-lg font-semibold text-black no-underline hover:bg-slate-400"
 				>
 					Rezervace
 				</a>
@@ -25,7 +25,7 @@
 			<div class="ml-3 inline-flex rounded-md shadow">
 				<a
 					href="/pivnice"
-					class="inline-flex items-center justify-center px-5 py-3 border border-transparent no-underline text-lg font-semibold rounded-md text-black bg-white hover:bg-slate-400"
+					class="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-lg font-semibold text-black no-underline hover:bg-slate-400"
 				>
 					Pivnice
 				</a>
