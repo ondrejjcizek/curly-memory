@@ -24,7 +24,7 @@
 			</div>
 			<div class="ml-3 inline-flex rounded-md shadow">
 				<a
-					href="/pivnice"
+					href=""
 					class="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-lg font-semibold text-black no-underline hover:bg-slate-400"
 				>
 					Pivnice

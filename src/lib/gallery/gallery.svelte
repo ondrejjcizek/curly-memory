@@ -38,6 +38,26 @@
 			}
 		}
 	};
+
+	const previousItem = () => {
+		const nextIdx = (currentIdx - 1) % data.length;
+		selected = data[nextIdx].banner_image;
+	};
+
+	const nextItem = () => {
+		const nextIdx = (currentIdx + 1) % data.length;
+		selected = data[nextIdx].banner_image;
+	};
+
+	const closeButton = () => {
+		selected = '';
+	};
+
+	const closeGallery = (e) => {
+		if (e.target === e.currentTarget) {
+			selected = '';
+		}
+	};
 </script>
 
 <div class="wrapper">
@@ -62,37 +82,11 @@
 </div>
 
 {#if selected}
-	<div
-		class="image-viewer"
-		on:click={(e) => {
-			if (e.target === e.currentTarget) {
-				selected = '';
-			}
-		}}
-	>
-		<button
-			on:click={() => {
-				const nextIdx = (currentIdx - 1) % data.length;
-				selected = data[nextIdx].banner_image;
-			}}
-		>
-			Předchozí
-		</button>
-		<button
-			on:click={() => {
-				const nextIdx = (currentIdx + 1) % data.length;
-				selected = data[nextIdx].banner_image;
-			}}
-		>
-			Další
-		</button>
+	<div class="image-viewer" on:click={closeGallery}>
+		<button on:click={previousItem}> Předchozí </button>
+		<button on:click={nextItem}> Další </button>
 		<div class="gallery-wrapper">
-			<div
-				class="close-wrapper"
-				on:click={(f) => {
-					selected = '';
-				}}
-			>
+			<div class="close-wrapper" on:click={closeButton}>
 				<span class="close" />
 			</div>
 			<img
@@ -100,7 +94,7 @@
 				out:send={{ key: selected }}
 				src={selected}
 				alt={data[currentIdx].name}
-				class="shadow-2xl rounded-md mb-1"
+				class="mb-1 rounded-md shadow-2xl"
 			/>
 			<div
 				aria-label="圖片檢視器，可用鍵盤左右鍵導覽"
