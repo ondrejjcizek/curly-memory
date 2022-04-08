@@ -3,8 +3,21 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "scss/_breakpoints.scss";
+@import "scss/mixins/_breakpoints.scss";
 
-* {
-    box-sizing: border-box;
-}
+@import "scss/base/_variables.scss";
+@import "scss/base/_fonts.scss";
+@import "scss/base/_typography.scss";
+
+
+
+@import "scss/layout/_main.scss";
+
+// @import "../../components/**/*";
+
+
+
+
+// Gallery Settings
+$gallery-height: 666px;
+$gallery-width: 1000px;

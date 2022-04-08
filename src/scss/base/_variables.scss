@@ -1,0 +1,230 @@
+//Baseline
+$baseline: 24px;
+
+//--------------------------------//
+//---------- COLORS -------------//
+//------------------------------//
+$color-white: #fff;
+$color-black: #000;
+
+$color-primary: $color-white;
+
+$color-secondary: $color-black;
+
+$color-text: #00065b;
+$color-text-light: #7387ac;
+
+$color-bg-01: #e7f0ff;
+
+//-------------------------------------//
+//---------- FONT FAMILY -------------//
+//-----------------------------------//
+$font-family-primary: 'Spectral', serif;
+
+//------------------------------//
+//---------- TEXT -------------//
+//----------------------------//
+
+//HP heading
+$hp-heading-font-size: 46px;
+$hp-heading-offset: 7px;
+$hp-heading-line-height: $baseline * 2;
+
+$hp-heading-font-size-LG: 46px;
+$hp-heading-offset-LG: 7px;
+$hp-heading-line-height-LG: $baseline * 2;
+
+$hp-heading-font-size-SM: 36px;
+$hp-heading-offset-SM: 10px;
+$hp-heading-line-height-SM: $baseline * 2;
+
+//Base heading
+$base-heading-font-size: 36px;
+$base-heading-offset: 10px;
+$base-heading-line-height: $baseline * 2;
+
+$base-heading-font-size-LG: 36px;
+$base-heading-offset-LG: 10px;
+$base-heading-line-height-LG: $baseline * 2;
+
+$base-heading-font-size-SM: 25px;
+$base-heading-offset-SM: 2px;
+$base-heading-line-height-SM: $baseline * 1;
+
+//Base subheading
+$base-subheading-font-size: 30px;
+$base-subheading-offset: 13px;
+$base-subheading-line-height: $baseline * 2;
+
+$base-subheading-font-size-LG: 30px;
+$base-subheading-offset-LG: 13px;
+$base-subheading-line-height-LG: $baseline * 2;
+
+$base-subheading-font-size-SM: 22px;
+$base-subheading-offset-SM: 4px;
+$base-subheading-line-height-SM: $baseline * 1;
+
+//Article heading
+$article-heading-font-size: 25px;
+$article-heading-offset: 2px;
+$article-heading-line-height: $baseline * 1;
+
+$article-heading-font-size-LG: 25px;
+$article-heading-offset-LG: 2px;
+$article-heading-line-height-LG: $baseline * 1;
+
+$article-heading-font-size-SM: 22px;
+$article-heading-offset-SM: 4px;
+$article-heading-line-height-SM: $baseline * 1;
+
+//Base text
+$base-text-font-size: 16px;
+$base-text-offset: 6px;
+
+//Large text
+$large-text-font-size: 18px;
+$large-text-offset: 5px;
+
+//Small text
+$small-text-font-size: 14px;
+$small-text-offset: 6px;
+
+//Smallest text
+$smallest-text-font-size: 12px;
+$smallest-text-offset: 7px;
+
+//----------------------------//
+//---------- LINKS ----------//
+//--------------------------//
+
+//Links
+$link-text-color: $color-primary;
+
+//------------------------------//
+//-------- DECORATIONS --------//
+//----------------------------//
+//Border radius
+$border-radius-base: 0px;
+
+//Box shadow
+$shadow-01: 0px 5px 30px 0 rgba(39, 44, 78, 0.09);
+$shadow-02: 0px 5px 25px 0 rgba(62, 57, 57, 0.3);
+
+//Cubic beziers
+// $cubic-bezier-01: cubic-bezier(0.86, 0, 0.07, 1);
+
+//------------------------------//
+//---------- BUTTONS ----------//
+//----------------------------//
+// //Button text
+// $button-font-size: $small-text-font-size;
+// $button-small-font-size: $smallest-text-font-size;
+// //$button-large-font-size: $base-text-font-size;
+// $button-large-font-size: $base-text-font-size;
+// $button-font-weight: 700;
+// $button-uppercase: true;
+
+// //Button color
+// $button-primary-bg-color: $color-primary-light;
+// $button-primary-bg-color-hover: $color-primary;
+// $button-primary-text-color: $color-text;
+// $button-primary-text-color-hover: $color-white;
+
+// $button-secondary-bg-color: $color-white;
+// $button-secondary-bg-color-hover: $color-secondary-hover;
+// $button-secondary-text-color: $color-primary;
+// $button-secondary-text-color-hover: $color-white;
+
+// $button-disabled-bg-color: #d3d3d3;
+// $button-disabled-text-color: $color-text-light;
+
+// $button-loading-text-color: $button-primary-text-color;
+// $button-loading-bg-color-01: $color-primary;
+// $button-loading-bg-color-02: $color-primary-dark;
+
+// //Button size
+// $button-min-widht: 175px;
+// $button-small-min-widht: 150px;
+// $button-large-min-widht: 230px;
+
+// //Button misc
+// //$button-border-radius: $border-radius-base;
+// $button-border-radius: 5px;
+
+//-----------------------------//
+//---------- HEADER ----------//
+//---------------------------//
+// $header-bg-color: transparent; //$color-bg-01;
+
+// $header-bg-color-hover: transparent;
+
+// $header-border-color: transparent;
+
+// $header-nav-main-bg-color-MD: $color-white;
+
+// $header-bg-color-hover-MD: $header-bg-color-hover;
+
+// //Header brand
+// $header-brand-img-height: $baseline * 2.2;
+
+// //Header text
+// $header-font-size: $base-text-font-size;
+
+// $header-text-color: $color-text;
+// $header-text-color-hover: $color-secondary;
+
+// $header-font-weight: 700;
+
+// $header-font-size-MD: $header-font-size;
+
+// $header-text-color-MD: $header-text-color;
+// $header-text-color-hover-MD: $header-text-color-hover;
+
+// $header-font-weight-MD: $header-font-weight;
+
+// $header-line-color-MD: $header-border-color;
+
+// //Header nav button
+// $header-nav-button-color: $color-primary;
+
+// //Submenu
+// $sub-menu-bg-color: $color-white;
+// $sub-menu-bg-color-hover: transparent;
+
+// $sub-menu-text-color: $header-text-color;
+// $sub-menu-text-color-hover: $header-text-color-hover;
+
+// $sub-menu-line-color: $color-bg-01;
+
+// $sub-menu-bg-color-MD: $color-bg-01;
+// $sub-menu-bg-color-hover-MD: $sub-menu-bg-color-hover;
+
+// $sub-menu-text-color-MD: $sub-menu-text-color;
+// $sub-menu-text-color-hover-MD: $sub-menu-text-color-hover;
+
+// $sub-menu-line-color-MD: $color-bg-01;
+
+// //Sub menu sub menu
+// $sub-sub-menu-bg-color: $sub-menu-bg-color;
+// $sub-sub-menu-bg-color-hover: $sub-menu-bg-color-hover;
+
+// $sub-sub-menu-text-color: $sub-menu-text-color;
+// $sub-sub-menu-text-color-hover: $sub-menu-text-color-hover;
+
+// $sub-sub-menu-line-color: $sub-menu-line-color;
+
+// $sub-sub-menu-bg-color-MD: $color-white;
+// $sub-sub-menu-bg-color-hover-MD: $sub-sub-menu-bg-color-hover;
+
+// $sub-sub-menu-text-color-MD: $sub-sub-menu-text-color;
+// $sub-sub-menu-text-color-hover-MD: $sub-sub-menu-text-color-hover;
+
+// $sub-sub-menu-line-color-MD: tranparent;
+
+// //Header search
+// $header-search-button-color: $color-primary;
+// $header-search-button-color-hover: $header-text-color-hover;
+
+// $header-search-border-radius: 6px;
+
+// $header-search-input-bg-color: $color-white;

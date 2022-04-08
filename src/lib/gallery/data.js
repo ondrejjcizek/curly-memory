@@ -1,8 +1,7 @@
 const data = [
 	{
 		name: 'Pokoj 1',
-		banner_image:
-			'https://firebasestorage.googleapis.com/v0/b/u-bile-ruze.appspot.com/o/room-1%2Froom-1-1.jpeg?alt=media&token=43cff561-6e30-458d-9790-fb137bbb847e'
+		banner_image: 'pivnice/pivnice-1.jpeg'
 	},
 	{
 		name: 'Pokoj 2',

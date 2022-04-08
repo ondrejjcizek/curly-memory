@@ -160,7 +160,7 @@
 		top: 40%
 		left: 50%
 		transform: translate(-50%, -40%) 
-		max-width: $gallery-width
+		max-width: 1200px
 		width: 80%
 		margin: 0 auto
 
