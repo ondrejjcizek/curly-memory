@@ -2,7 +2,7 @@
 	import { tick } from 'svelte';
 	import { crossfade, fade } from 'svelte/transition';
 	import data from './data';
-	import keyboard from '../useKeyboard';
+	import keyboard from './useKeyboard';
 	let selected = '';
 	let gallery;
 	const [send, receive] = crossfade({

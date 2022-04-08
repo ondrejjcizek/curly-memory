@@ -10,13 +10,14 @@
 			<img class="rotate h-20 mr-4" src="u-bile-ruze-logo.svg" alt="" />
 			<div>
 				<span class="block">U bílé růže</span>
+				<span class="block text-slate-400">Penzion a pivnice</span>
 			</div>
 		</h2>
 		<div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
 			<div class="inline-flex rounded-md shadow">
 				<a
 					href="/rezervace"
-					class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-black bg-white hover:bg-slate-400"
+					class="inline-flex items-center justify-center px-5 py-3 border border-transparent no-underline text-lg font-semibold rounded-md text-black bg-white hover:bg-slate-400"
 				>
 					Rezervace
 				</a>
@@ -24,7 +25,7 @@
 			<div class="ml-3 inline-flex rounded-md shadow">
 				<a
 					href="/pivnice"
-					class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-black bg-white hover:bg-slate-400"
+					class="inline-flex items-center justify-center px-5 py-3 border border-transparent no-underline text-lg font-semibold rounded-md text-black bg-white hover:bg-slate-400"
 				>
 					Pivnice
 				</a>
@@ -40,7 +41,7 @@
 <style lang="sass">
 	.rotate
 		animation: rotate-right 30s linear infinite
-
+		
 	@keyframes rotate-right
 		from  
 			transform: rotate(0deg)
