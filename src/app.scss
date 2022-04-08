@@ -3,21 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "scss/mixins/_breakpoints.scss";
+@import 'scss/mixins/_breakpoints.scss';
 
-@import "scss/base/_variables.scss";
-@import "scss/base/_fonts.scss";
-@import "scss/base/_typography.scss";
+@import 'scss/base/_variables.scss';
+@import 'scss/base/_fonts.scss';
+@import 'scss/base/_typography.scss';
+@import 'scss/layout/_main.scss';
 
-
-
-@import "scss/layout/_main.scss";
-
-@import "lib/gallery/gallery.scss";
-
-
-
-
-// Gallery Settings
-$gallery-height: 666px;
-$gallery-width: 1000px;
+@import 'lib/gallery/gallery.scss';

@@ -70,7 +70,6 @@
 						loading="lazy"
 						aria-label={d.name}
 						out:send={{ key: d.banner_image }}
-						in:receive={{ key: d.banner_image }}
 						on:click={() => handlePreviewClick(d.banner_image)}
 						class="image"
 						style="background-image: url({d.banner_image});"
@@ -82,11 +81,21 @@
 </div>
 
 {#if selected}
-	<div class="image-viewer" on:click={closeGallery}>
+	<div
+		class="image-viewer"
+		in:receive={{ key: selected }}
+		out:send={{ key: selected }}
+		on:click={closeGallery}
+	>
 		<button on:click={previousItem}> Předchozí </button>
 		<button on:click={nextItem}> Další </button>
 		<div class="gallery-wrapper">
-			<div class="close-wrapper" on:click={closeButton}>
+			<div
+				class="close-wrapper"
+				in:receive={{ key: selected }}
+				out:send={{ key: selected }}
+				on:click={closeButton}
+			>
 				<span class="close" />
 			</div>
 			<img
@@ -98,6 +107,8 @@
 			<div
 				aria-label="image viewer, navigate with the left and right keys on the keyboard"
 				role="group"
+				in:receive={{ key: selected }}
+				out:send={{ key: selected }}
 				bind:this={gallery}
 				use:keyboard={{ shortcut }}
 				class="gallery"
