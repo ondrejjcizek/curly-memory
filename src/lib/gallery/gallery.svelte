@@ -5,6 +5,8 @@
 	let selected = '';
 	let gallery;
 
+	$: currentIdx = selected ? data.findIndex((d) => d.banner_image === selected) : -1;
+
 	const [send, receive] = crossfade({
 		duration: () => 100,
 		fallback: fade
@@ -13,8 +15,6 @@
 	const handlePreviewClick = (imageURL) => {
 		selected = imageURL;
 	};
-
-	$: currentIdx = selected ? data.findIndex((d) => d.banner_image === selected) : -1;
 
 	const shortcut = {};
 
@@ -32,14 +32,7 @@
 		selected = '';
 	};
 
-	const closeGallery = (e) => {
-		const key = e.key;
-		const keyCode = e.keyCode;
-		console.log(key);
-		console.log(keyCode);
-	};
-
-	const escButton = (e) => {
+	const keyHandler = (e) => {
 		if (e.key === 'Escape') {
 			selected = '';
 		} else if (e.key === 'ArrowRight') {
@@ -52,7 +45,7 @@
 	};
 </script>
 
-<svelte:window on:keydown={escButton} />
+<svelte:window on:keydown={keyHandler} />
 
 <div>
 	<div class="gallery-container">
@@ -82,12 +75,7 @@
 </div>
 
 {#if selected}
-	<div
-		class="image-viewer"
-		in:receive={{ key: selected }}
-		out:send={{ key: selected }}
-		on:click={closeGallery}
-	>
+	<div class="image-viewer" in:receive={{ key: selected }} out:send={{ key: selected }}>
 		<button on:click={previousItem}> Předchozí </button>
 		<button on:click={nextItem}> Další </button>
 		<div class="gallery-wrapper">
