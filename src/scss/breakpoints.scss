@@ -1,0 +1,19 @@
+//Desktop - from 1200px up
+@include up('xl') {
+}
+
+//Up to tablet landscape - up to 1199px
+@include down('xl') {
+}
+
+//Up to tablet portrait - up to 991px
+@include down('lg') {
+}
+
+//Up to phone landscape - up to 767px
+@include down('md') {
+}
+
+//Phone portrait - up to 575px
+@include down('sm') {
+}
