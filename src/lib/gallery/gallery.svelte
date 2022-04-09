@@ -1,10 +1,12 @@
 <script>
 	import { tick } from 'svelte';
 	import { crossfade, fade } from 'svelte/transition';
-	import data from './data';
+	// import data from './data';
 	import keyboard from './useKeyboard';
+	export let data;
 	let selected = '';
 	let gallery;
+
 	const [send, receive] = crossfade({
 		duration: () => 500,
 		fallback: fade
@@ -63,14 +65,21 @@
 <div>
 	<div class="gallery-container">
 		{#each data as d (d.banner_image)}
-			<div>
+			<div class="gallery-container-inner">
 				{#if d.banner_image !== selected}
 					<div
 						role="img"
 						loading="lazy"
 						aria-label={d.name}
-						out:send={{ key: d.banner_image }}
 						on:click={() => handlePreviewClick(d.banner_image)}
+						class="image"
+						style="background-image: url({d.banner_image});"
+					/>
+				{:else if d.banner_image == selected}
+					<div
+						role="img"
+						loading="lazy"
+						aria-label={d.name}
 						class="image"
 						style="background-image: url({d.banner_image});"
 					/>
@@ -99,6 +108,7 @@
 				<span class="close" />
 			</div>
 			<img
+				loading="lazy"
 				in:receive={{ key: selected }}
 				out:send={{ key: selected }}
 				src={selected}
@@ -117,6 +127,7 @@
 				{#each data as d (d.name)}
 					<div
 						role="img"
+						loading="lazy"
 						out:send={{ key: d.banner_image }}
 						in:receive={{ key: d.banner_image }}
 						aria-label={d.name}

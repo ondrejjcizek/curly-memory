@@ -1,6 +1,7 @@
 <script>
 	import Gallery from '$lib/gallery/gallery.svelte';
-	import Beerhouse from '$lib/gallery/beerhouse/beerhouse.svelte';
+	import pivnice from '$lib/gallery/data/pivnice';
+	import dvouluzkovyPokoj from '$lib/gallery/data/dvouluzkovyPokoj';
 </script>
 
 <div class="bg-slate-400 py-16">
@@ -12,7 +13,7 @@
 					<p class="">Cena: 900,- Kč</p>
 					<a href="#" class="block font-medium text-slate-800">Rezervovat</a>
 				</div>
-				<Gallery />
+				<Gallery data={dvouluzkovyPokoj} />
 			</div>
 			<div class="rounded-2xl bg-white px-8 py-12 shadow-xl sm:px-12 lg:px-8">
 				<div class="mb-12 space-y-4">
@@ -20,7 +21,7 @@
 					<p class="">Cena: 1300,- Kč</p>
 					<a href="#" class="block font-medium text-slate-800">Rezervovat</a>
 				</div>
-				<Gallery />
+				<Gallery data={pivnice} />
 			</div>
 			<div class="rounded-2xl bg-white px-8 py-12 shadow-xl sm:px-12 lg:px-8">
 				<div class="mb-12 space-y-4">
@@ -28,7 +29,7 @@
 					<p class="">Cena: 2.500,- Kč</p>
 					<a href="#" class="block font-medium text-slate-800">Rezervovat</a>
 				</div>
-				<Gallery />
+				<Gallery data={pivnice} />
 			</div>
 		</div>
 	</div>

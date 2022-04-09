@@ -1,4 +1,4 @@
-const data = [
+const pivnice = [
 	{
 		name: 'Pohled z dálky + celé město',
 		banner_image: 'pivnice/pivnice-1.jpeg'
@@ -29,4 +29,4 @@ const data = [
 	}
 ];
 
-export default data;
+export default pivnice;
