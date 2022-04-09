@@ -13,7 +13,12 @@ $gallery-width: 1000px;
 		}
 	}
 
+	img {
+		-webkit-tap-highlight-color: transparent;
+	}
+
 	.gallery-container-inner {
+		-webkit-tap-highlight-color: transparent;
 		position: relative;
 		.placeholder {
 			&:before {
@@ -59,6 +64,7 @@ $gallery-width: 1000px;
 		width: 100%;
 		object-fit: cover;
 		margin-bottom: 4px;
+		border-radius: 6px;
 	}
 
 	@include down('sm') {
@@ -71,12 +77,21 @@ $gallery-width: 1000px;
 	animation: fade-in 1s forwards;
 	animation-delay: 0.5s;
 	position: absolute;
-	right: 20px;
-	top: 20px;
+	right: -20px;
+	top: -20px;
+	cursor: pointer;
+	padding: 40px;
+	transition: ease transform 0.3s;
+	outline: 0;
+	-webkit-tap-highlight-color: transparent;
+	&:hover {
+		transform: scale(1.1);
+	}
 
 	@include down('sm') {
-		top: 10px;
-		right: 10px;
+		top: -10px;
+		right: -10px;
+		padding: 20px;
 	}
 }
 
@@ -87,12 +102,6 @@ $gallery-width: 1000px;
 	height: 50px;
 	border-radius: 50%;
 	background: white;
-	transition: ease transform 0.3s;
-	cursor: pointer;
-
-	&:hover {
-		transform: scale(1.1);
-	}
 
 	&:after {
 		position: absolute;
@@ -159,7 +168,7 @@ $gallery-width: 1000px;
 }
 
 .active {
-	border-radius: 0.375rem;
+	border-radius: 6px;
 	transform: translateY(-15px);
 
 	@include down('sm') {

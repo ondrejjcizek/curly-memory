@@ -1,14 +1,13 @@
 <script>
 	import { tick } from 'svelte';
 	import { crossfade, fade } from 'svelte/transition';
-	// import data from './data';
 	import keyboard from './useKeyboard';
 	export let data;
 	let selected = '';
 	let gallery;
 
 	const [send, receive] = crossfade({
-		duration: () => 500,
+		duration: () => 100,
 		fallback: fade
 	});
 
@@ -99,26 +98,13 @@
 		<button on:click={previousItem}> Předchozí </button>
 		<button on:click={nextItem}> Další </button>
 		<div class="gallery-wrapper">
-			<div
-				class="close-wrapper"
-				in:receive={{ key: selected }}
-				out:send={{ key: selected }}
-				on:click={closeButton}
-			>
+			<div class="close-wrapper" on:click={closeButton}>
 				<span class="close" />
 			</div>
-			<img
-				loading="lazy"
-				in:receive={{ key: selected }}
-				out:send={{ key: selected }}
-				src={selected}
-				alt={data[currentIdx].name}
-			/>
+			<img loading="lazy" src={selected} alt={data[currentIdx].name} />
 			<div
 				aria-label="image viewer, navigate with the left and right keys on the keyboard"
 				role="group"
-				in:receive={{ key: selected }}
-				out:send={{ key: selected }}
 				bind:this={gallery}
 				use:keyboard={{ shortcut }}
 				class="gallery"
@@ -128,8 +114,6 @@
 					<div
 						role="img"
 						loading="lazy"
-						out:send={{ key: d.banner_image }}
-						in:receive={{ key: d.banner_image }}
 						aria-label={d.name}
 						data-selected={selected === d.banner_image}
 						class:active={selected === d.banner_image}
