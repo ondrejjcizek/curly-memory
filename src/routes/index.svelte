@@ -1,6 +1,5 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <script>
-	import Beerhouse from '$lib/gallery/beerhouse/beerhouse.svelte';
 </script>
 
 <div class="bg-slate-400 py-16">
@@ -15,7 +14,6 @@
 					</p>
 					<a href="#" class="block font-medium text-slate-800">Videoprohlídka</a>
 				</div>
-				<Beerhouse />
 			</div>
 		</div>
 	</div>

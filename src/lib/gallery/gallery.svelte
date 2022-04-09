@@ -1,7 +1,6 @@
 <script>
 	import { tick } from 'svelte';
 	import { crossfade, fade } from 'svelte/transition';
-	import keyboard from './useKeyboard';
 	export let data;
 	let selected = '';
 	let gallery;
@@ -17,28 +16,7 @@
 
 	$: currentIdx = selected ? data.findIndex((d) => d.banner_image === selected) : -1;
 
-	const shortcut = {
-		ArrowRight: async (e) => {
-			e.preventDefault();
-			const nextIdx = (currentIdx + 1) % data.length;
-			selected = data[nextIdx].banner_image;
-			await tick();
-			const active = gallery.querySelector('[data-selected="true"]');
-			if (active) {
-				active.scrollIntoView();
-			}
-		},
-		ArrowLeft: async (e) => {
-			e.preventDefault();
-			const nextIdx = currentIdx === 0 ? data.length - 1 : (currentIdx - 1) % data.length;
-			selected = data[nextIdx].banner_image;
-			await tick();
-			const active = gallery.querySelector('[data-selected="true"]');
-			if (active) {
-				active.scrollIntoView();
-			}
-		}
-	};
+	const shortcut = {};
 
 	const previousItem = () => {
 		const nextIdx = (currentIdx - 1) % data.length;
@@ -55,11 +33,26 @@
 	};
 
 	const closeGallery = (e) => {
-		if (e.target === e.currentTarget) {
+		const key = e.key;
+		const keyCode = e.keyCode;
+		console.log(key);
+		console.log(keyCode);
+	};
+
+	const escButton = (e) => {
+		if (e.key === 'Escape') {
 			selected = '';
+		} else if (e.key === 'ArrowRight') {
+			const nextIdx = (currentIdx + 1) % data.length;
+			selected = data[nextIdx].banner_image;
+		} else {
+			const nextIdx = currentIdx === 0 ? data.length - 1 : (currentIdx - 1) % data.length;
+			selected = data[nextIdx].banner_image;
 		}
 	};
 </script>
+
+<svelte:window on:keydown={escButton} />
 
 <div>
 	<div class="gallery-container">
@@ -106,7 +99,6 @@
 				aria-label="image viewer, navigate with the left and right keys on the keyboard"
 				role="group"
 				bind:this={gallery}
-				use:keyboard={{ shortcut }}
 				class="gallery"
 				tabindex={0}
 			>
