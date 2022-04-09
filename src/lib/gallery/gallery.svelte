@@ -21,11 +21,13 @@
 	const previousItem = () => {
 		const nextIdx = (currentIdx - 1) % data.length;
 		selected = data[nextIdx].banner_image;
+		console.log(selected);
 	};
 
 	const nextItem = () => {
 		const nextIdx = (currentIdx + 1) % data.length;
 		selected = data[nextIdx].banner_image;
+		console.log(selected);
 	};
 
 	const closeButton = () => {
@@ -36,11 +38,11 @@
 		if (e.key === 'Escape') {
 			selected = '';
 		} else if (e.key === 'ArrowRight') {
-			const nextIdx = (currentIdx + 1) % data.length;
-			selected = data[nextIdx].banner_image;
+			nextItem();
+		} else if (e.key === 'ArrowLeft') {
+			previousItem();
 		} else {
-			const nextIdx = currentIdx === 0 ? data.length - 1 : (currentIdx - 1) % data.length;
-			selected = data[nextIdx].banner_image;
+			return;
 		}
 	};
 </script>
