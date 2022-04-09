@@ -2,12 +2,29 @@
 	import Gallery from '$lib/gallery/gallery.svelte';
 	import pivnice from '$lib/gallery/data/pivnice';
 	import dvouluzkovyPokoj from '$lib/gallery/data/dvouluzkovyPokoj';
+
+	const keyHandler = (e) => {
+		if (e.key === 'Escape') {
+			selected = '';
+		} else if (e.key === 'ArrowRight') {
+			nextItem();
+			console.log(selected + ' KEY');
+		} else if (e.key === 'ArrowLeft') {
+			previousItem();
+			console.log(selected + ' KEY');
+		} else {
+			return;
+		}
+	};
 </script>
 
 <div class="bg-slate-400 py-16">
 	<div class="container m-auto px-6 text-gray-500 md:px-12 xl:px-0">
 		<div class="mx-auto grid gap-6 md:w-3/4 lg:w-full lg:grid-cols-3">
-			<div class="rounded-2xl bg-white px-8 py-12 shadow-xl sm:px-12 lg:px-8">
+			<div
+				on:keydown={keyHandler}
+				class="rounded-2xl bg-white px-8 py-12 shadow-xl sm:px-12 lg:px-8"
+			>
 				<div class="space-y-4">
 					<h3 class="text-2xl font-semibold text-slate-800">Dvoulůžkový pokoj</h3>
 					<p class="">Cena: 900,- Kč</p>
@@ -29,7 +46,6 @@
 					<p class="">Cena: 2.500,- Kč</p>
 					<a href="#" class="block font-medium text-slate-800">Rezervovat</a>
 				</div>
-				<Gallery data={pivnice} />
 			</div>
 		</div>
 	</div>
