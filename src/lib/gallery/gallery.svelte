@@ -1,7 +1,6 @@
 <script>
 	import { crossfade, fade } from 'svelte/transition';
 	export let data;
-	export let scopeName;
 	let selected = '';
 
 	let gallery;
