@@ -6,12 +6,15 @@ $gallery-width: 1000px;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 5px;
-
-	@include down('sm') {
-		& :nth-child(n + 4) {
-			display: none;
-		}
+	& :nth-child(n + 4) {
+		display: none;
 	}
+
+	// @include down('sm') {
+	// 	& :nth-child(n + 4) {
+	// 		display: none;
+	// 	}
+	// }
 
 	img {
 		-webkit-tap-highlight-color: transparent;
