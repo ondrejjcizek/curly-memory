@@ -1,5 +1,4 @@
 <script>
-	import { tick } from 'svelte';
 	import { crossfade, fade } from 'svelte/transition';
 	export let data;
 	let selected = '';
@@ -19,15 +18,17 @@
 	const shortcut = {};
 
 	const previousItem = () => {
-		const nextIdx = (currentIdx - 1) % data.length;
+		let nextIdx = (currentIdx - 1) % data.length;
+		if (nextIdx === -1) {
+			const last = data.length - 1;
+			nextIdx = last;
+		}
 		selected = data[nextIdx].banner_image;
-		console.log(selected);
 	};
 
 	const nextItem = () => {
 		const nextIdx = (currentIdx + 1) % data.length;
 		selected = data[nextIdx].banner_image;
-		console.log(selected);
 	};
 
 	const closeButton = () => {
@@ -47,7 +48,7 @@
 	};
 </script>
 
-<svelte:window on:keydown={keyHandler} />
+<!-- <svelte:window on:keydown={keyHandler} /> -->
 
 <div>
 	<div class="gallery-container">
@@ -77,7 +78,12 @@
 </div>
 
 {#if selected}
-	<div class="image-viewer" in:receive={{ key: selected }} out:send={{ key: selected }}>
+	<div
+		class="image-viewer"
+		on:keydown={keyHandler}
+		in:receive={{ key: selected }}
+		out:send={{ key: selected }}
+	>
 		<button on:click={previousItem}> Předchozí </button>
 		<button on:click={nextItem}> Další </button>
 		<div class="gallery-wrapper">
