@@ -5,16 +5,23 @@ $gallery-width: 1000px;
 .gallery-container {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 5px;
+	gap: 12px;
+	padding-top: 0;
+
 	& :nth-child(n + 4) {
 		display: none;
 	}
 
-	// @include down('sm') {
-	// 	& :nth-child(n + 4) {
-	// 		display: none;
-	// 	}
-	// }
+	@include up('md') {
+		padding-top: 0;
+		grid-template-columns: repeat(4, 1fr);
+
+		& :nth-child(n + 7) {
+			display: block;
+		}
+	}
+
+	
 
 	img {
 		-webkit-tap-highlight-color: transparent;
@@ -48,7 +55,7 @@ $gallery-width: 1000px;
 	background: center / cover no-repeat;
 	transition: ease transform 0.3s;
 	cursor: pointer;
-	border-radius: 6px;
+	// border-radius: 6px;
 	box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 }
 
@@ -167,7 +174,7 @@ $gallery-width: 1000px;
 	background-color: rgba(255, 255, 255, 0.5);
 
 	button {
-		// display: none;
+		display: none;
 	}
 }
 

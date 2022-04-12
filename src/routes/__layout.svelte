@@ -1,65 +1,59 @@
 <script>
 	import '../app.scss';
+	import Section from '$lib/section.svelte';
 </script>
 
-<header class="bg-black">
-	<div
-		class="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-16 lg:px-8"
-	>
-		<a
-			href="/"
-			class="flex items-center text-3xl font-bold tracking-tight text-white no-underline sm:text-4xl"
-		>
-			<div class="align-center flex">
-				<span class="block">U bílé růže</span>
-				<div class="coat-of-arms">
-					<img class="coat" src="coat-of-arms.svg" alt="" />
-					<span><img class="rose" src="rose.svg" alt="" /></span>
+<Section headingClass="" label="U bílé růže - Horažďovice">
+	<header class="bg-[wheat]">
+		<div class="mx-auto max-w-7xl justify-center bg-black py-6 sm:px-6 lg:flex lg:py-7 lg:px-8">
+			<div
+				class="flex items-center justify-center text-sm font-extrabold tracking-tight text-white no-underline sm:text-base md:text-3xl"
+			>
+				<div class="flex items-center uppercase">
+					<span class="block">U bílé růže</span>
+					<a href="/" class="coat-of-arms px-5">
+						<img class="coat" src="coat-of-arms.svg" alt="" />
+						<span><img class="rose" src="rose.svg" alt="" /></span>
+					</a>
+					<span class="block">Horažďovice</span>
 				</div>
-				<span class="block text-slate-400">Horažďovice</span>
 			</div>
-		</a>
-	</div>
-</header>
+		</div>
+	</header>
+</Section>
 
-<main>
+<main class="max-w-7xl bg-[wheat]">
 	<slot />
 </main>
 
 <style lang="sass">
 	.coat-of-arms
 		position: relative
-		height: 140px
-		padding: 0 20px
+		height: 60px
+
+		@include up('md')
+			height: 120px
 
 		.coat
 			height: 100%
 
 		span
 			display: block
-			position: relative
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			width: 100%
 			height: 100%
-			transform-origin: 0 100%
 
 			.rose
-				
-				// animation: rotate-right 5s linear infinite
-				position: absolute
-				// top: 5%
-				// left: 19%
+				transform-origin: 50% 50%
+				animation: rotate-right 20s linear infinite
+				position: relative
+				top: 7%
 				height: 80%
-				
-
-			&::after
-				position: absolute
-				top: 100%
-				left: 0
-				width: 5px
-				height: 5px
-				content: ''
-				background-color: #f0f
-				border-radius: 50%
-				transform: translate(-50%, -50%)
+				margin: 0 auto 
+			
 		
 		@keyframes rotate-right
 			from  

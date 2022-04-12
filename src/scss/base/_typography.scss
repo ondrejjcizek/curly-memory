@@ -62,6 +62,8 @@ p {
 	transform: translateY($base-text-offset);
 	margin-bottom: $baseline;
 	color: $color-text-light;
+	font-family: $font-family-secondary;
+	font-weight: 500;
 }
 
 //Large test
