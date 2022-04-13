@@ -1,8 +1,9 @@
 <script>
 	import { crossfade, fade } from 'svelte/transition';
+	import { onMount } from 'svelte';
+	import focusGallery from './focusGallery';
 	export let data;
 	let selected = '';
-	let gallery;
 
 	$: currentIdx = selected ? data.findIndex((d) => d.banner_image === selected) : -1;
 
@@ -14,8 +15,6 @@
 	const handlePreviewClick = (imageURL) => {
 		selected = imageURL;
 	};
-
-	const shortcut = {};
 
 	const previousItem = () => {
 		let nextIdx = (currentIdx - 1) % data.length;
@@ -79,6 +78,7 @@
 
 {#if selected}
 	<div
+		use:focusGallery
 		class="image-viewer"
 		on:keydown={keyHandler}
 		in:receive={{ key: selected }}
@@ -94,8 +94,8 @@
 			<div
 				aria-label="image viewer, navigate with the left and right keys on the keyboard"
 				role="group"
-				bind:this={gallery}
 				class="gallery"
+				id="focus-gallery"
 				tabindex={0}
 			>
 				{#each data as d (d.name)}
@@ -113,9 +113,10 @@
 			</div>
 		</div>
 	</div>
+
+	<p class="visually-hidden" aria-atomic={true} aria-live="assertive">
+		{#if data[currentIdx]}
+			Current Image Name: {data[currentIdx].name}
+		{/if}
+	</p>
 {/if}
-<p class="visually-hidden" aria-atomic={true} aria-live="assertive">
-	{#if data[currentIdx]}
-		Current Image Name: {data[currentIdx].name}
-	{/if}
-</p>

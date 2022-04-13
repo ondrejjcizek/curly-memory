@@ -1,9 +1,9 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <script>
-	import ModalVideo from '$lib/youtube.svelte';
-	import Gallery from '$lib/gallery/gallery.svelte';
+	import Youtube from '$lib/Youtube.svelte';
+	import Gallery from '$lib/gallery/Gallery.svelte';
 	import pivnice from '$lib/gallery/data/pivnice';
-	import Section from '$lib/section.svelte';
+	import Section from '$lib/Section.svelte';
 </script>
 
 <Section headingClass="heading-pivnice" label="Pivnice">
@@ -18,7 +18,7 @@
 					nachází pivnice, vhodná pro pořádání různých firemních akcí, oslav či večírků. Penzion je
 					kulturní památkou v městské památkové zóně Horažďovice.
 				</p>
-				<ModalVideo />
+				<Youtube />
 			</div>
 			<Gallery data={pivnice} />
 		</div>

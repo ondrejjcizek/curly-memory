@@ -1,11 +1,13 @@
 <script>
 	import '../app.scss';
-	import Section from '$lib/section.svelte';
+	import Section from '$lib/Section.svelte';
 </script>
 
 <Section headingClass="" label="U bílé růže - Horažďovice">
 	<header class="bg-[wheat]">
-		<div class="mx-auto max-w-7xl justify-center bg-black py-6 sm:px-6 lg:flex lg:py-7 lg:px-8">
+		<div
+			class="mx-auto max-w-7xl justify-center rounded-md bg-black py-6 sm:px-6 lg:flex lg:py-7 lg:px-8"
+		>
 			<div
 				class="flex items-center justify-center text-sm font-extrabold tracking-tight text-white no-underline sm:text-base md:text-3xl"
 			>

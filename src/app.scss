@@ -10,3 +10,19 @@
 @import 'scss/base/_typography.scss';
 
 @import 'lib/gallery/gallery.scss';
+
+
+.yt {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    button {
+        position: absolute;
+        bottom: 0;
+    }
+
+    .video-title {
+        display: none
+    }
+}
