@@ -53,24 +53,14 @@
 	<div class="gallery-container">
 		{#each data as d (d.banner_image)}
 			<div class="gallery-container-inner">
-				{#if d.banner_image !== selected}
-					<div
-						role="img"
-						loading="lazy"
-						aria-label={d.name}
-						on:click={() => handlePreviewClick(d.banner_image)}
-						class="image"
-						style="background-image: url({d.banner_image});"
-					/>
-				{:else if d.banner_image == selected}
-					<div
-						role="img"
-						loading="lazy"
-						aria-label={d.name}
-						class="image"
-						style="background-image: url({d.banner_image});"
-					/>
-				{/if}
+				<div
+					role="img"
+					loading="lazy"
+					aria-label={d.name}
+					on:click={() => handlePreviewClick(d.banner_image)}
+					class="image"
+					style="background-image: url({d.banner_image});"
+				/>
 			</div>
 		{/each}
 	</div>
