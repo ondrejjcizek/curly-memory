@@ -21,7 +21,7 @@ const config = {
 	preprocess: [
 		preprocess({
 			scss: {
-				prependData: `@import './src/app.scss'`
+				prependData: `@import './src/app.scss';`
 			},
 			postcss: true
 		})

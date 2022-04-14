@@ -59,7 +59,7 @@ h6 {
 //Text
 p {
 	font-size: $base-text-font-size;
-	transform: translateY($base-text-offset);
+	// transform: translateY($base-text-offset);
 	margin-bottom: $baseline;
 	color: $color-text-light;
 	font-family: $font-family-secondary;
@@ -87,7 +87,7 @@ p {
 //link
 a {
 	text-decoration: underline;
-	color: $color-text-light;
+	// color: $color-text-light;
 
 	&:hover,
 	&:focus {

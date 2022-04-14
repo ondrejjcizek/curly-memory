@@ -26,16 +26,10 @@
 
 <svelte:window on:keydown={keyHandler} />
 
-<div class="flex h-full items-center justify-between gap-[12px]">
-	<button
-		class="w-full rounded-md  bg-black py-3 px-3 text-sm text-white hover:bg-slate-700 md:text-base"
-		>Rezervace pokoje</button
-	>
-	<button
-		class="w-full rounded-md bg-black py-3 px-3 text-sm text-white hover:bg-slate-700 md:text-base"
-		on:click={openModal}>Videoprohlídka</button
-	>
-</div>
+<button
+	class="w-full rounded-md bg-black py-3 px-3 text-sm text-white hover:bg-slate-700 md:text-base"
+	on:click={openModal}>Videoprohlídka</button
+>
 
 {#if active}
 	<div class="backdrop" on:click={closeModal} transition:fade={{ duration: 300 }} />
@@ -68,21 +62,39 @@
 	{/if}
 </div>
 
-<style lang="sass">
-	.backdrop 
-		position: absolute
-		z-index: 2
-		top: 0
-		left: 0
-		display: block
-		height: 100%
-		width: 100%
-		backdrop-filter: blur(10px)
-		background-color: rgba(255, 255, 255, 0.5)
+<style lang="scss">
+	.backdrop {
+		position: absolute;
+		z-index: 2;
+		top: 0;
+		left: 0;
+		display: block;
+		height: 100%;
+		width: 100%;
+		backdrop-filter: blur(10px);
+		background-color: rgba(255, 255, 255, 0.5);
+	}
 
-	.active 
-		display: block
+	.active {
+		display: block;
+	}
 
-	#modal 
-		z-index: 3
+	#modal {
+		z-index: 3;
+	}
+
+	.yt {
+		background: red;
+		position: relative;
+		height: 100%;
+		width: 100%;
+
+		button {
+			display: none;
+		}
+
+		.video-title {
+			display: none;
+		}
+	}
 </style>
