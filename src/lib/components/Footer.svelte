@@ -18,15 +18,15 @@
 		<div class="flex flex-col items-center gap-[24px]">
 			<div class="flex gap-[24px]">
 				<div>
-					<div>PO 14:00 - 22:00</div>
-					<div>ÚT 14:00 - 22:00</div>
-					<div>ST 14:00 - 22:00</div>
-					<div>ČT 14:00 - 22:00</div>
+					<div class="p-[9px]">PO 14:00 - 22:00</div>
+					<div class="p-[9px]">ÚT 14:00 - 22:00</div>
+					<div class="p-[9px]">ST 14:00 - 22:00</div>
+					<div class="p-[9px]">ČT 14:00 - 22:00</div>
 				</div>
 				<div>
-					<div>PÁ 14:00 - 24:00</div>
-					<div>SO 11:00 - 22:00</div>
-					<div>NE 11:00 - 21:00</div>
+					<div class="p-[9px]">PÁ 14:00 - 24:00</div>
+					<div class="p-[9px]">SO 11:00 - 22:00</div>
+					<div class="p-[9px]">NE 11:00 - 21:00</div>
 				</div>
 			</div>
 			<a class="footer-link md:hidden" target="_blank" href="https://goo.gl/maps/oTb2ei8oDo5bsFWu9"
@@ -39,7 +39,11 @@
 <style lang="scss">
 	.footer-link {
 		text-decoration: none;
-		padding: 4px;
+		padding: 16px;
+
+		@include up('md') {
+			padding: 14px;
+		}
 	}
 	@include up('md') {
 		.footer-link {

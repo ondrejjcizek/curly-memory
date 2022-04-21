@@ -21,3 +21,38 @@
 //     transform: translate(-50%, -50%);
 //     width: 100%;
 // }
+
+.active {
+    display: block;
+}
+
+#modal {
+    z-index: 3;
+}
+
+.yt {
+    background: red;
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    button {
+        display: none;
+    }
+
+    .video-title {
+        display: none;
+    }
+}
+
+.backdrop {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    display: block;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);
+}

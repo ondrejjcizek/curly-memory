@@ -1,11 +1,11 @@
 const dvouluzkovyDruhyPokoj = [
 	{
 		name: 'Dvoulůžkový pokoj - místnost',
-		banner_image: 'penzion/pokoj-2-1.jpeg'
+		banner_image: 'penzion/pokoj-2-1.webp'
 	},
 	{
 		name: 'Dvoulůžkový pokoj - postele',
-		banner_image: 'penzion/pokoj-2-2.jpeg'
+		banner_image: 'penzion/pokoj-2-2.webp'
 	}
 ];
 
