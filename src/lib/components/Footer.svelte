@@ -25,8 +25,8 @@
 				</div>
 				<div>
 					<div class="p-[9px]">PÁ 14:00 - 24:00</div>
-					<div class="p-[9px]">SO 11:00 - 22:00</div>
-					<div class="p-[9px]">NE 11:00 - 21:00</div>
+					<div class="p-[9px]">SO 13:00 - 22:00</div>
+					<div class="p-[9px]">NE 13:00 - 21:00</div>
 				</div>
 			</div>
 			<a class="footer-link md:hidden" target="_blank" href="https://goo.gl/maps/oTb2ei8oDo5bsFWu9"

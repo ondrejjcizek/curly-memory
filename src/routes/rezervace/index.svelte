@@ -64,7 +64,9 @@
 			on:click={() => scrollBottom()}>Rezervujte telefonicky nebo e-mailem</button
 		>
 		<div class="text-gray-500 xl:px-0">
-			<div class="mx-auto flex flex-nowrap gap-[12px] overflow-hidden overflow-x-auto">
+			<div
+				class="vertical-slider mx-auto flex flex-nowrap gap-[12px] overflow-hidden overflow-x-scroll"
+			>
 				<div
 					class="min-w-[190px] rounded-2xl bg-[#013220] px-5 py-5 shadow-xl md:min-w-[220px] md:py-8 md:px-8"
 				>
@@ -87,6 +89,15 @@
 					class="min-w-[190px] rounded-2xl bg-[#013220] px-5 py-5 shadow-xl md:min-w-[220px] md:py-8 md:px-8"
 				>
 					<div class="flex h-full flex-col justify-between text-center">
+						<h3 class="text-sm font-semibold text-white md:text-base">Dvoulůžkový pokoj</h3>
+						<p class="mt-2 mb-2 text-sm text-white md:text-base">900,- Kč</p>
+						<Gallery oneTile={true} galleryOption={true} data={manzelskaPostel} />
+					</div>
+				</div>
+				<div
+					class="min-w-[190px] rounded-2xl bg-[#013220] px-5 py-5 shadow-xl md:min-w-[220px] md:py-8 md:px-8"
+				>
+					<div class="flex h-full flex-col justify-between text-center">
 						<h3 class="text-sm font-semibold text-white md:text-base">Třílůžkový pokoj</h3>
 						<p class="mt-2 mb-2 text-sm text-white md:text-base">1300,- Kč</p>
 						<Gallery oneTile={true} galleryOption={true} data={triluzkovyPokoj} />
@@ -96,19 +107,10 @@
 					class="min-w-[190px] rounded-2xl bg-[#013220] px-5 py-5 shadow-xl md:min-w-[220px] md:py-8 md:px-8"
 				>
 					<div class="flex h-full flex-col justify-between text-center">
-						<h3 class="text-sm font-semibold text-white md:text-base">Dvoulůžkový pokoj</h3>
-						<p class="mt-2 mb-2 text-sm text-white md:text-base">2.500,- Kč</p>
-						<Gallery oneTile={true} galleryOption={true} data={manzelskaPostel} />
-					</div>
-				</div>
-				<div
-					class="min-w-[190px] rounded-2xl bg-[#013220] px-5 py-5 shadow-xl md:min-w-[220px] md:py-8 md:px-8"
-				>
-					<div class="flex h-full flex-col justify-between text-center">
 						<h3 class="text-sm font-semibold text-white md:text-base">
 							Apartmán - manželská postel
 						</h3>
-						<p class="mt-2 mb-2 text-sm text-white md:text-base">2.500,- Kč</p>
+						<p class="mt-2 mb-2 text-sm text-white md:text-base">1.500,- Kč</p>
 						<Gallery oneTile={true} galleryOption={true} data={apartman} />
 					</div>
 				</div>
